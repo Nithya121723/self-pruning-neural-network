@@ -48,6 +48,8 @@ with a spread of values between 0 and 0.05. Unlike the higher λ runs where
 everything collapses to a single spike, this run shows genuine variation —
 the network learned which weights matter more and kept them selectively open.
 
+Note: The expected bimodal distribution was not observed — most gates collapsed near zero even at low λ, likely due to gate_scores initialised at −3.0 which biased gates toward closure from the start. A neutral initialisation at 0.0 would better demonstrate the bimodal behaviour
+
 Sparsity stays at 0% for the first 10–15 epochs then jumps sharply. This 
 is because gates start at sigmoid(−3) ≈ 0.05 and need sustained gradient 
 pressure to cross the 0.01 threshold. Pruning doesn't happen gradually —
